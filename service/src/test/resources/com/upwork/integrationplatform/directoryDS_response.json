@@ -1,0 +1,28 @@
+{
+    "uid": "user_uid1",
+    "legacyId": "aischenko",
+    "rid": "rid",
+    "personName": {
+        "lastName": "Ishchenko",
+        "firstName": "Artem",
+        "setFirstName": true,
+        "setLastName": true
+    },
+    "location": {
+        "city": "",
+        "country": "",
+        "timezone": "",
+        "setCity": true,
+        "setTimezone": true,
+        "setCountry": true
+    },
+    "photoUrl": "",
+    "creationDate": "",
+    "setUid": true,
+    "setLegacyId": true,
+    "setRid": true,
+    "setPhotoUrl": true,
+    "setLocation": true,
+    "setPersonName": true,
+    "setCreationDate": true
+}

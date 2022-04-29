@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.upwork.integrationplatform</groupId>
+        <artifactId>time-entry-validator</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <name>time-entry-validator-cal</name>
+    <artifactId>cal</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.upwork.integrationplatform</groupId>
+            <artifactId>thrift</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.odesk.agora</groupId>
+            <artifactId>agora-core-v2</artifactId>
+            <version>${agora.core.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.odesk.agora</groupId>
+            <artifactId>omaha-commons</artifactId>
+            <version>${omaha.commons.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-core</artifactId>
+                </exclusion>
+            </exclusions>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.odesk.agora</groupId>
+            <artifactId>omaha-commons-test</artifactId>
+            <version>${omaha.commons.test.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

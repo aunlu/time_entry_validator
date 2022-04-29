@@ -1,0 +1,1 @@
+FROM 739939173819.dkr.ecr.us-west-1.amazonaws.com/upwork/maven:3.6-amazoncorretto-11

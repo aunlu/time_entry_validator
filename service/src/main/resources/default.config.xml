@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <server>
+        <!--TODO: replace with appropriate ports-->
+        <applicationConnectors>
+            <http>
+                <port>8005</port>
+            </http>
+        </applicationConnectors>
+        <adminConnectors>
+            <http>
+                <port>8006</port>
+            </http>
+        </adminConnectors>
+    </server>
+
+    <database>
+        <driverClass>org.postgresql.Driver</driverClass>
+        <user></user>
+        <password></password>
+        <url></url>
+        <!--any properties specific to your JDBC driver:-->
+        <properties>
+            <charSet>UTF-8</charSet>
+            <defaultSchemaName>validator</defaultSchemaName>
+            <sslrootcert>/etc/ssl/certs/rds-combined-ca-bundle.pem</sslrootcert>
+            <sslmode>verify-ca</sslmode>
+        </properties>
+        <enabled>true</enabled>
+    </database>
+<!--    <eureka>-->
+<!--        <vipAddress>validatorService.odesk.com</vipAddress>-->
+<!--        <serviceEnabled>true</serviceEnabled>-->
+<!--    </eureka>-->
+    <metadata>
+        <summary>Service Provides [functionality] for [something].</summary>
+        <version>${project.version}</version>
+    </metadata>
+    <security>
+        <enabled>true</enabled>
+        <secureResources>
+            <private>/sample/private</private>
+        </secureResources>
+        <authenticationEnabled>true</authenticationEnabled>
+    </security>
+
+    <directoryDS>
+        <eurekaEnabled>true</eurekaEnabled>
+        <host>localhost</host>
+        <port>8064</port>
+        <adminPort>8065</adminPort>
+        <vipAddress>directoryDS.odesk.com</vipAddress>
+        <httpClient>
+            <timeout>60000ms</timeout>
+            <connectionTimeout>60000ms</connectionTimeout>
+            <timeToLive>1 hour</timeToLive>
+            <cookiesEnabled>false</cookiesEnabled>
+            <maxConnections>1024</maxConnections>
+            <maxConnectionsPerRoute>1024</maxConnectionsPerRoute>
+            <keepAlive>0s</keepAlive>
+            <minThreads>1</minThreads>
+            <maxThreads>128</maxThreads>
+            <gzipEnabled>false</gzipEnabled>
+            <gzipEnabledForRequests>false</gzipEnabledForRequests>
+        </httpClient>
+    </directoryDS>
+    <offlineTimeRecordsDS>
+        <eurekaEnabled>false</eurekaEnabled>
+        <vipAddress>offlineTimeRecordsDS.odesk.com</vipAddress>
+    </offlineTimeRecordsDS>
+</root>

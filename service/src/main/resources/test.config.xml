@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+
+    <database>
+        <user>admin</user>
+        <password>admin</password>
+        <url>jdbc:postgresql://localhost:5432/validator</url>
+        <properties>
+            <sslmode>disable</sslmode>
+            <gssEncMode>allow</gssEncMode>
+        </properties>
+    </database>
+    <graphite>
+        <enabled>false</enabled>
+        <host>host</host>
+        <port>1</port>
+    </graphite>
+    <archaius>
+        <dynamicEnabled>false</dynamicEnabled>
+        <configurationService>
+            <enabled>false</enabled>
+        </configurationService>
+    </archaius>
+    <atlas>
+        <enabled>false</enabled>
+    </atlas>
+
+    <eureka>
+        <environment>staging</environment>
+        <serviceEnabled>false</serviceEnabled>
+        <shouldUseDns>true</shouldUseDns>
+        <validateInstanceId>false</validateInstanceId>
+        <eurekaServer>
+            <domainName>eureka.staging.platform.usw2.upwork</domainName>
+            <port>8010</port>
+            <context>eureka/v2</context>
+        </eurekaServer>
+        <region>us-west-2</region>
+        <!--
+        If you have issues with Eureka DNS resolution, do following:
+        1. Change shouldUseDns above to "false"
+        2. Change the IP in "serviceUrl.default" below with the IP of a eureka server. To get eureka IP do the next steps:
+            1. Go to http://webconsole.staging.platform.usw2.upwork/
+               and log in with Upwork domain/OKTA credentials.
+            2. Search in Quick search for "eureka"
+            3. Open one of the latest instances and get the IP from the bottom on the instance information.
+        -->
+        <serviceUrl>
+            <default>http://1.2.3.4:8010/eureka/v2/</default>
+        </serviceUrl>
+        <mt>
+            <read_timeout>100</read_timeout>
+            <connect_timeout>100</connect_timeout>
+            <num_retries>0</num_retries>
+        </mt>
+    </eureka>
+
+    <zipkin>
+        <enabled>false</enabled>
+        <host>host</host>
+        <v2port>1</v2port>
+    </zipkin>
+    <logging>
+        <file>
+            <enabled>true</enabled>
+            <currentLogFilename>timeEntryValidator-%i</currentLogFilename>
+            <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            <maxFileSize>10mb</maxFileSize>
+            <sizeBasedArchiving>
+                <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            </sizeBasedArchiving>
+        </file>
+        <jsonFile>
+            <enabled>false</enabled>
+            <currentLogFilename>%i</currentLogFilename>
+            <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            <sizeBasedArchiving>
+                <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            </sizeBasedArchiving>
+        </jsonFile>
+    </logging>
+    <requestLogging>
+        <file>
+            <enabled>false</enabled>
+            <currentLogFilename>%i</currentLogFilename>
+            <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            <sizeBasedArchiving>
+                <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            </sizeBasedArchiving>
+        </file>
+        <jsonFile>
+            <enabled>false</enabled>
+            <currentLogFilename>%i</currentLogFilename>
+            <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            <sizeBasedArchiving>
+                <archivedLogFilenamePattern>%i</archivedLogFilenamePattern>
+            </sizeBasedArchiving>
+        </jsonFile>
+    </requestLogging>
+    <security>
+        <signature>
+            <allowPlainTokens>true</allowPlainTokens>
+        </signature>
+    </security>
+    <directoryDS>
+        <eurekaEnabled>false</eurekaEnabled>
+    </directoryDS>
+    <offlineTimeRecordsDS>
+        <eurekaEnabled>false</eurekaEnabled>
+        <host>swagger.prod.platform.usw2.upwork</host>
+        <port>80</port>
+    </offlineTimeRecordsDS>
+    <partnerRequestOrchestrator>
+        <eurekaEnabled>false</eurekaEnabled>
+        <host>swagger.prod.platform.usw2.upwork</host>
+        <port>80</port>
+    </partnerRequestOrchestrator>
+    <hystrix>
+        <command>
+            <default>
+                <requestLog>
+                    <enabled>false</enabled>
+                </requestLog>
+                <execution>
+                    <isolation>
+                        <thread>
+                            <timeoutInMilliseconds>65000</timeoutInMilliseconds>
+                        </thread>
+                    </isolation>
+                </execution>
+            </default>
+        </command>
+    </hystrix>
+</root>
